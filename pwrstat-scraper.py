@@ -221,8 +221,8 @@ def main():
                         help='Time between readings in seconds.')
     parser.add_argument('--log-file',
                         default=None,
-                        action='store_true',
-                        help='Time between readings in seconds.')
+                        type=str,
+                        help='Full path to logfile.  Default is to log just to stdout.')
     parser.add_argument("-v", "--verbose",
                         dest="verbose",
                         action="count",
