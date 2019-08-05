@@ -1,0 +1,9 @@
+[Unit]
+Description=UPS pwrstat scraper
+
+[Service]
+WorkingDirectory={{ABSOLUTE_PATH_TO_REPO}}
+ExecStart={{ABSOLUTE_PATH_TO_VENV}}/bin/python {{ABSOLUTE_PATH_TO_REPO}}/pwrstat-scraper.py --config-file config.myserver.yaml --series myserver -n 15 --log-file /var/log/pwrstat-scraper.log -d
+
+[Install]
+WantedBy=multi-user.target
