@@ -1,0 +1,7 @@
+influx:
+  host: localhost
+  port: 8086
+  db: pwrstat
+  user: root
+  password: root
+  admin: False
