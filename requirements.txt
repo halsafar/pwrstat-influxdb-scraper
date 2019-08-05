@@ -1,3 +1,4 @@
 influxdb
 python-daemon
 pyyaml
+wheel
