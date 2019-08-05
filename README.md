@@ -15,7 +15,7 @@ Exciting...
 ```sh
 git clone https://github.com/halsafar/pwrstat-influxdb-scraper.git
 cd pwrstat-influxdb-scraper
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate
 ```
 
