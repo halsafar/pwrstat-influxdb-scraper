@@ -237,14 +237,20 @@ def main():
             logger.error("Error loading config file [{0}]: {1}".format(args.config_file, exc))
             sys.exit(1)
 
-    setup_logging(args.log_file, args.verbose)
-    verify_setup()
-
     if args.daemonize:
         logger.info("Starting daemon...")
-        with daemon.DaemonContext():
-            run_scrape(args, config)
+        try:
+            with daemon.DaemonContext():
+                setup_logging(args.log_file, args.verbose)
+                verify_setup()
+
+                run_scrape(args, config)
+        except Exception as e:
+            logger.error("Crashed!")
+            logger.exception(e)
     else:
+        setup_logging(args.log_file, args.verbose)
+        verify_setup()
         run_scrape(args, config)
 
     logger.info("Shutting down...")
